@@ -9,8 +9,18 @@ declare(strict_types=1);
 
 namespace Snoepkaasjes\ProductType\Model\Product\Type;
 
-use Magento\Catalog\Model\Product\Type\Virtual;
+use Magento\Catalog\Model\Product;
+use Magento\Catalog\Model\Product\Type\AbstractType;
 
-class PlaygroundProduct extends Virtual
+class PlaygroundProduct extends AbstractType
 {
+    /**
+     * Delete data specific for Playground product type
+     *
+     * @param Product $product
+     * @return void
+     */
+    public function deleteTypeSpecificData(Product $product)
+    {
+    }
 }
