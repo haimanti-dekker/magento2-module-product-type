@@ -11,7 +11,6 @@ namespace Snoepkaasjes\ProductType\Test\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Magento\Catalog\Model\Product;
-use Snoepkaasjes\ProductType\Model\Product\Type\PlaygroundProduct;
 
 class PlaygroundProductTypeTest extends TestCase
 {
@@ -33,7 +32,7 @@ class PlaygroundProductTypeTest extends TestCase
         $this->product->method('getTypeId')
             ->willReturn('playground_product');
         $this->product->method('getSku')
-            ->willReturn('playground');
+                ->willReturn('#dev' . date('dmy'));
 
         $this->product->expects($this->once())
             ->method('setData')
@@ -54,8 +53,9 @@ class PlaygroundProductTypeTest extends TestCase
     public function testCustomProductType(): void
     {
         $this->assertEquals('playground_product', $this->product->getTypeId());
-        $this->assertStringContainsString('playground', $this->product->getSku());
+        $this->assertStringContainsString('dev', $this->product->getSku());
 
+        // Add to Extension Attributes to decouple
         $this->product->setData('github_repo_url', 'https://github.com');
         $this->assertStringContainsString('https://github.com', $this->product->getData('github_repo_url'));
     }

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table
+        name="playground_product"
+        resource="default"
+        comment="Entry that corresponds with github Repo"
+    >
+        <!--
+        Product
+            title (release title)
+            short_description (about)
+            release (visibility||date)
+
+        on:entity_id -> table instead of eav for 
+            lines of code written
+            languages
+            total commits
+            last commit
+            number of files
+        -->
+    </table>
+    <table
+        name="playground_product_row"
+        resource="default"
+        comment="Entry that corresponds with a release with specific tag sorted by date"
+    >
+        <!--
+        on:entity_id|parent_id
+            entity_id
+            parent_id
+            row_title (release title)
+            row_description (release description
+            ai_directive (directive for ImageGeneratorService)
+        -->
+    </table>
+</schema>
